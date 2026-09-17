@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Staff Portal | Stand For Humanity Foundation</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="robots" content="noindex, nofollow">
+    <meta content="Sign in to the Stand For Humanity Foundation staff portal." name="description">
+    <link href="../Charitize/img/favicon.ico" rel="icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" rel="stylesheet">
+    <link href="css/portal.css?v=dash-2" rel="stylesheet">
+</head>
+<body class="portal-login">
+    <main class="login-shell">
+        <section class="login-panel">
+            <a class="login-brand" href="../index.html">
+                <img src="../Charitize/img/stand-logo.png?v=blue" alt="Stand For Humanity Foundation">
+                <span class="brand-word">Stand For Humanity<br>Foundation</span>
+            </a>
+            <p class="login-kicker">Staff portal</p>
+            <h1>Welcome back.</h1>
+            <p class="login-lead">Sign in to stand with those who cannot stand alone — and continue the work from Owerri, Imo State.</p>
+
+            <form id="portalLoginForm" class="login-form" novalidate>
+                <div id="loginAlert" class="login-alert" role="alert"></div>
+                <div class="field">
+                    <input id="email" name="email" type="email" autocomplete="username" placeholder=" " required>
+                    <label for="email">Email address</label>
+                </div>
+                <div class="field">
+                    <input id="password" name="password" type="password" autocomplete="current-password" placeholder=" " required>
+                    <label for="password">Password</label>
+                    <button class="field-toggle" type="button" id="togglePassword" aria-label="Show password">
+                        <i class="fa fa-eye"></i>
+                    </button>
+                </div>
+                <div class="login-row">
+                    <label class="remember">
+                        <input type="checkbox" name="remember">
+                        Remember me
+                    </label>
+                    <a href="mailto:info@standforhumanityfoundation.org">Need access?</a>
+                </div>
+                <button class="login-submit" id="loginSubmit" type="submit">Enter portal</button>
+            </form>
+            <p class="login-foot">Protected work space · <a href="../index.html">Return to the public site</a></p>
+        </section>
+
+        <aside class="login-visual" id="loginVisual" aria-hidden="true">
+            <img id="loginVisualImg" src="../Charitize/img/stand2.jpg" alt="">
+            <div class="login-visual-multiply"></div>
+            <div class="login-visual-color"></div>
+            <div class="login-visual-copy">
+                <p>We stand with those who cannot stand alone.</p>
+                <span>Owerri, Imo State, Nigeria</span>
+            </div>
+        </aside>
+    </main>
+
+    <script src="js/wash.js?v=dash-2"></script>
+    <script src="js/auth.js?v=dash-2"></script>
+    <script src="js/login.js?v=dash-2"></script>
+</body>
+</html>

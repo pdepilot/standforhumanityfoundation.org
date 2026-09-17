@@ -1,0 +1,699 @@
+:root {
+    --navy: #050A19;
+    --royal: #0020B0;
+    --gold: #FFAC00;
+    --cream: #FDF8EA;
+    --ink: #101628;
+    --muted: rgba(253, 248, 234, 0.62);
+    --line: rgba(255, 172, 0, 0.28);
+    --wash: #0020B0;
+    --wash-soft: #1a3ad4;
+    --accent: #FFAC00;
+    --panel: rgba(8, 12, 28, 0.72);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+}
+
+html {
+    height: 100%;
+}
+
+h1, h2, h3, .brand-word {
+    font-family: "Josefin Sans", sans-serif;
+}
+
+body.portal-login {
+    height: 100%;
+    font-family: "Open Sans", sans-serif;
+    color: var(--cream);
+    background: var(--navy);
+    overflow: hidden;
+}
+
+.login-shell {
+    display: grid;
+    grid-template-columns: minmax(320px, 46%) 1fr;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+.login-panel {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3.2rem 4.2rem;
+    background:
+        radial-gradient(1200px 500px at -10% -20%, rgba(0, 32, 176, 0.35), transparent 55%),
+        linear-gradient(180deg, #070b1c 0%, #050a19 100%);
+}
+
+.login-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-bottom: 2.4rem;
+    text-decoration: none;
+    color: inherit;
+}
+
+.login-brand img {
+    height: 64px;
+    width: auto;
+}
+
+.brand-word {
+    font-size: 0.92rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.35;
+}
+
+.login-kicker {
+    color: var(--gold);
+    font-size: 0.78rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    margin: 0 0 0.85rem;
+}
+
+.login-panel h1 {
+    font-size: clamp(2rem, 4vw, 3.1rem);
+    line-height: 1.05;
+    margin: 0 0 0.85rem;
+}
+
+.login-lead {
+    color: var(--muted);
+    max-width: 28rem;
+    margin: 0 0 2.2rem;
+    font-size: 1rem;
+}
+
+.login-form {
+    max-width: 420px;
+}
+
+.field {
+    position: relative;
+    margin-bottom: 1.15rem;
+}
+
+.field input {
+    width: 100%;
+    height: 58px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.04);
+    color: #fff;
+    padding: 1.15rem 1.1rem 0.45rem;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.field input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 4px rgba(255, 172, 0, 0.16);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.field label {
+    position: absolute;
+    left: 1.1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(253, 248, 234, 0.55);
+    pointer-events: none;
+    transition: 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.field input:focus + label,
+.field input:not(:placeholder-shown) + label {
+    top: 0.62rem;
+    transform: none;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+.field-toggle {
+    position: absolute;
+    right: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 0;
+    background: transparent;
+    color: var(--gold);
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+}
+
+.login-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 0.3rem 0 1.4rem;
+    font-size: 0.9rem;
+}
+
+.login-row a {
+    color: var(--gold);
+    text-decoration: none;
+}
+
+.login-row a:hover {
+    text-decoration: underline;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--muted);
+}
+
+.login-submit {
+    width: 100%;
+    height: 56px;
+    border: 0;
+    border-radius: 14px;
+    background: linear-gradient(90deg, #ffc107 0%, #ffac00 50%, #e69a00 100%);
+    color: #050a19;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 1.05rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.login-submit::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.45) 45%, transparent 70%);
+    transform: translateX(-120%);
+    animation: shine 3.6s ease-in-out infinite;
+}
+
+.login-submit:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 30px rgba(255, 172, 0, 0.28);
+}
+
+.login-submit[disabled] {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+.login-alert {
+    display: none;
+    margin: 0 0 1rem;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    background: rgba(220, 53, 69, 0.16);
+    border: 1px solid rgba(220, 53, 69, 0.35);
+    color: #ffd5d8;
+    font-size: 0.92rem;
+}
+
+.login-alert.show {
+    display: block;
+    animation: shake 0.42s ease;
+}
+
+.login-foot {
+    margin-top: 2.4rem;
+    color: rgba(253, 248, 234, 0.45);
+    font-size: 0.82rem;
+}
+
+.login-foot a {
+    color: inherit;
+}
+
+.login-visual {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: var(--wash);
+}
+
+.login-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.18) brightness(0.78);
+    transform: scale(1.08);
+    animation: kenburns 32s ease-in-out infinite alternate;
+}
+
+.login-visual-multiply,
+.login-visual-color {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    transition: background 1.1s ease, opacity 1.1s ease;
+}
+
+.login-visual-multiply {
+    background: var(--wash);
+    mix-blend-mode: multiply;
+    opacity: 0.78;
+}
+
+.login-visual-color {
+    background: var(--wash-soft);
+    mix-blend-mode: color;
+    opacity: 0.7;
+}
+
+.login-visual::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(5, 10, 25, 0.05) 0%, rgba(5, 10, 25, 0.55) 100%),
+        radial-gradient(circle at 80% 20%, rgba(255, 172, 0, 0.18), transparent 36%);
+    pointer-events: none;
+}
+
+.login-visual-copy {
+    position: absolute;
+    left: 2.4rem;
+    right: 2.4rem;
+    bottom: 2.6rem;
+    z-index: 2;
+}
+
+.login-visual-copy p {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.4rem);
+    line-height: 1.2;
+    margin: 0 0 0.7rem;
+    max-width: 14ch;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.login-visual-copy span {
+    display: inline-block;
+    color: var(--accent);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+}
+
+.login-visual.from-logout .login-visual-multiply,
+.login-visual.from-logout .login-visual-color {
+    animation: bloom 1.4s ease;
+}
+
+@keyframes kenburns {
+    from { transform: scale(1.08) translate3d(0, 0, 0); }
+    to { transform: scale(1.18) translate3d(-2%, -1.5%, 0); }
+}
+
+@keyframes shine {
+    0%, 55% { transform: translateX(-120%); }
+    75%, 100% { transform: translateX(120%); }
+}
+
+@keyframes bloom {
+    0% { filter: hue-rotate(-40deg) saturate(0.6); opacity: 0.15; }
+    100% { filter: none; }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+}
+
+@media (max-width: 900px) {
+    body.portal-login {
+        overflow: auto;
+        height: auto;
+    }
+
+    .login-shell {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .login-visual {
+        min-height: 38vh;
+        order: -1;
+    }
+
+    .login-panel {
+        padding: 2rem 1.4rem 2.6rem;
+    }
+
+    .login-visual-copy {
+        left: 1.3rem;
+        right: 1.3rem;
+        bottom: 1.3rem;
+    }
+}
+
+/* Dashboard */
+body.portal-dash {
+    font-family: "Open Sans", sans-serif;
+    background: #050814;
+    color: var(--cream);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.dash-ambient {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+        radial-gradient(900px 480px at 8% -10%, color-mix(in srgb, var(--wash) 42%, transparent), transparent 58%),
+        radial-gradient(700px 420px at 100% 0%, rgba(255, 172, 0, 0.16), transparent 46%),
+        linear-gradient(180deg, #070b1c 0%, #050814 100%);
+}
+
+.dash-nav,
+.dash-stage {
+    position: relative;
+    z-index: 1;
+}
+
+.dash-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.6rem;
+    backdrop-filter: blur(18px);
+    background: rgba(5, 10, 25, 0.55);
+    border-bottom: 1px solid rgba(255, 172, 0, 0.16);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.dash-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: inherit;
+}
+
+.dash-logo img {
+    height: 46px;
+}
+
+.dash-logo span {
+    font-family: "Josefin Sans", sans-serif;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    color: var(--gold);
+}
+
+.dash-nav-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.dash-clock {
+    font-variant-numeric: tabular-nums;
+    color: var(--muted);
+    font-size: 0.86rem;
+}
+
+.dash-userpill {
+    text-align: right;
+}
+
+.dash-userpill strong {
+    display: block;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.dash-userpill span {
+    color: var(--muted);
+    font-size: 0.78rem;
+}
+
+.btn-logout {
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--gold);
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 0.88rem;
+}
+
+.btn-logout:hover {
+    background: rgba(255, 172, 0, 0.12);
+}
+
+.dash-stage {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 1.6rem 1.4rem 3.8rem;
+}
+
+.dash-hero {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 1.4rem;
+    min-height: min(62vh, 560px);
+    margin-bottom: 1.4rem;
+}
+
+.dash-hero-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.4rem 0.4rem;
+}
+
+.dash-hero-copy h1 {
+    font-size: clamp(2.6rem, 6vw, 5.2rem);
+    line-height: 0.92;
+    margin: 0 0 1rem;
+}
+
+.dash-quote {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: clamp(1.15rem, 2vw, 1.55rem);
+    color: var(--accent);
+    margin: 0 0 0.55rem;
+    max-width: 16ch;
+}
+
+.dash-place {
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    margin: 0 0 1.8rem;
+}
+
+.dash-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.dash-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 1.2rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-family: "Josefin Sans", sans-serif;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ffc107, #ffac00);
+    color: #050a19;
+}
+
+.dash-cta-ghost {
+    background: transparent;
+    color: var(--cream);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.dash-hero-visual {
+    border-radius: 28px;
+    min-height: 320px;
+}
+
+.dash-hero-visual img {
+    border-radius: 28px;
+}
+
+.dash-bento {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.bento-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 240px;
+    border-radius: 24px;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.bento-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 172, 0, 0.55);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+.bento-wide {
+    grid-column: span 2;
+    min-height: 320px;
+}
+
+.bento-media {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(1) contrast(1.1) brightness(0.45);
+    transform: scale(1.06);
+    transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.bento-card:hover .bento-media {
+    transform: scale(1.12);
+    filter: grayscale(0.4) contrast(1.12) brightness(0.55);
+}
+
+.bento-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, transparent 10%, rgba(5, 8, 20, 0.92) 78%),
+        color-mix(in srgb, var(--wash) 28%, transparent);
+    mix-blend-mode: multiply;
+}
+
+.bento-body {
+    position: relative;
+    z-index: 1;
+    padding: 1.25rem 1.3rem 1.35rem;
+}
+
+.bento-kicker {
+    margin: 0 0 0.35rem;
+    color: var(--gold);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 0.68rem;
+}
+
+.bento-body h2 {
+    margin: 0 0 0.35rem;
+    font-size: 1.45rem;
+}
+
+.bento-body p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.bento-latest {
+    color: var(--cream) !important;
+    font-size: 1.05rem;
+    margin-bottom: 0.35rem !important;
+}
+
+.bento-count {
+    font-size: 0.82rem !important;
+    margin-bottom: 0.8rem !important;
+}
+
+.bento-feed {
+    list-style: none;
+    margin: 0.4rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.35rem;
+}
+
+.bento-feed li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    color: var(--cream);
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 0.35rem;
+}
+
+.bento-feed span {
+    color: var(--gold);
+}
+
+@media (max-width: 960px) {
+    .dash-hero,
+    .dash-bento {
+        grid-template-columns: 1fr;
+    }
+
+    .bento-wide {
+        grid-column: auto;
+    }
+
+    .dash-nav {
+        flex-wrap: wrap;
+    }
+
+    .dash-clock {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .login-visual img,
+    .login-submit::after,
+    .login-visual.from-logout .login-visual-multiply,
+    .login-visual.from-logout .login-visual-color,
+    .dash-hero-visual img,
+    .bento-card {
+        animation: none;
+        transition: none;
+    }
+}
