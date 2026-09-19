@@ -10,6 +10,15 @@
         }, 1);
     };
     spinner();
+
+    // Keep the More menu in document flow on phones so Popper cannot
+    // park it off-screen or clip it against overflow-x: clip.
+    $('.navbar .dropdown-toggle').attr('data-bs-display', 'static').on('click', function (e) {
+        var href = this.getAttribute('href') || '';
+        if (href === '#' || href === '#!') {
+            e.preventDefault();
+        }
+    });
     
     
     // Sticky Navbar — pin the gold bar after the topbar leaves the viewport
